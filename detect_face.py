@@ -132,6 +132,7 @@ def detect_one(model, image_path, device):
                 orgimg = show_results(orgimg, xywh, conf, landmarks, class_num)
 
     cv2.imwrite('result.jpg', orgimg)
+    print(det)
 
 
 
@@ -146,3 +147,4 @@ if __name__ == '__main__':
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = load_model(opt.weights, device)
     detect_one(model, opt.image, device)
+    
