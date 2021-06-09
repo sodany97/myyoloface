@@ -134,7 +134,6 @@ def detect_one(model, image_path, device):
                 
 
     cv2.imwrite('result.jpg', orgimg)
-    print(det)
     print(landmarks)
     
 
