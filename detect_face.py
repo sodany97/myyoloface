@@ -128,9 +128,10 @@ def detect_one(model, image_path, device):
                 xywh = (xyxy2xywh(det[j, :4].view(1, 4)) / gn).view(-1).tolist()
                 conf = det[j, 4].cpu().numpy()
                 landmarks = (det[j, 5:15].view(1, 10) / gn_lks).view(-1).tolist()
+                print(landmarks)
                 class_num = det[j, 15].cpu().numpy()
                 orgimg = show_results(orgimg, xywh, conf, landmarks, class_num)
-                print(xywh)
+                
 
     cv2.imwrite('result.jpg', orgimg)
     print(det)
