@@ -128,7 +128,6 @@ def detect_one(model, image_path, device):
                 xywh = (xyxy2xywh(det[j, :4].view(1, 4)) / gn).view(-1).tolist()
                 conf = det[j, 4].cpu().numpy()
                 landmarks = (det[j, 5:15].view(1, 10) / gn_lks).view(-1).tolist()
-                print(landmarks)
                 class_num = det[j, 15].cpu().numpy()
                 orgimg = show_results(orgimg, xywh, conf, landmarks, class_num)
                 
@@ -140,6 +139,10 @@ def detect_one(model, image_path, device):
 
 
 
+def outputs():
+    print(landmarks)
+    return landmarks,orgimg
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -150,5 +153,6 @@ if __name__ == '__main__':
     print(opt)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = load_model(opt.weights, device)
-    landmarks,orgimg = detect_one(model, opt.image, device)
+    detect_one(model, opt.image, device)
+    outputs
 
