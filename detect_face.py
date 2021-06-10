@@ -136,7 +136,7 @@ def detect_one(model, orgimg, device):
 
 
 
-def output(weights,image)
+def output(weights,image):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = load_model(weights, device)
     landmarks = detect_one(model,image, device)
