@@ -106,8 +106,6 @@ def detect_one(model, orgimg, device):
     # Apply NMS
     pred = non_max_suppression_face(pred, conf_thres, iou_thres)
 
-    print('img.shape: ', img.shape)
-    print('orgimg.shape: ', orgimg.shape)
 
     # Process detections
     for i, det in enumerate(pred):  # detections per image
