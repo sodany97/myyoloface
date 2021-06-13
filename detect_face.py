@@ -10,11 +10,11 @@ from numpy import random
 import copy
 
 from models.experimental import attempt_load
-from utils.datasets import letterbox
-from utils.general import check_img_size, non_max_suppression_face, apply_classifier, scale_coords, xyxy2xywh, \
+from utils1.datasets import letterbox
+from utils1.general import check_img_size, non_max_suppression_face, apply_classifier, scale_coords, xyxy2xywh, \
     strip_optimizer, set_logging, increment_path
-from utils.plots import plot_one_box
-from utils.torch_utils import select_device, load_classifier, time_synchronized
+from utils1.plots import plot_one_box
+from utils1.torch_utils import select_device, load_classifier, time_synchronized
 
 
 def load_model(weights, device):
